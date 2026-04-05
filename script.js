@@ -83,3 +83,5 @@ function searchMovie() {
 
     displayMovies(searchedMovies);
 }
+
+showAll();
