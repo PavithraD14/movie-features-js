@@ -12,7 +12,6 @@ const movies = [
 
 const container = document.getElementById("movie-container");
 
-// Master Function
 function displayMovies(data){
     const movieArray = Array.isArray(data) ? data : [data];
 
@@ -31,14 +30,9 @@ function displayMovies(data){
 
 }
 
-// Show All Movies
 function showAll() {
     displayMovies(movies);
 }
-
-
-
-// FILTER: Show only Action movies
 
 function filterAction(){
     const actionMovies = movies.filter((movie) => {
@@ -46,10 +40,6 @@ function filterAction(){
     });
     displayMovies(actionMovies);
 }
-
-
-
-//FILTER FUNCTION FOR THRILLER MOVIE
 
 function filterThriller(){
     const ThrillerMovies = movies.filter((movie) => {
@@ -59,7 +49,6 @@ function filterThriller(){
 }
 
 
-// CREATE A FILTER FUNCTION TO FILTER THE MOVIE WITH THE YEAR OF AFTER 2012
 function filterAfter2012() {
 const moviesAfter2012 = movies.filter((movies) => {
     return movies.year > 2012;
@@ -67,7 +56,7 @@ const moviesAfter2012 = movies.filter((movies) => {
     displayMovies(moviesAfter2012);
 }
 
-// FIND: Locate one specific movie
+
 function findInception(){
     const trendingMovie = movies.find((movie) => {
         return movie.title === "Inception";
@@ -75,21 +64,22 @@ function findInception(){
     displayMovies(trendingMovie);
 }
 
-// FIND: Search Movie Function
-function searchMovie(){
-    const userInput = document.getElementById("searchInput").value.trim();
-      
-    // VALIDATE THE INPUT FIELD
+function searchMovie() {
+    const userInput = document.getElementById("searchInput").value.trim().toLowerCase();
 
- if (userInput === "") {
-     alter("Please enter a movie name");
+    if (userInput === "") {
+        alert("Please enter a movie name");
         return;
-    }   
- const searchedMovie = movies.find((movie) => {
-        return input === movie.title.toLowerCase();
+    }
+
+    const searchedMovies = movies.filter((movie) => {
+        return movie.title.toLowerCase().includes(userInput);
     });
 
-    displayMovies(searchedMovie);
-}
+    if (searchedMovies.length === 0) {
+        container.innerHTML = `<h4 class="text-danger text-center">Movie not found</h4>`;
+        return;
+    }
 
-showAll();
+    displayMovies(searchedMovies);
+}

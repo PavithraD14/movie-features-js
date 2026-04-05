@@ -1,11 +1,3 @@
 body{
-  background: url("https://i.pinimg.com/736x/17/75/0d/17750dcdd82e96ffb2af664a3ea3b036.jpg")no-repeat center/cover;
-
-   
-}
-.error-msg {
-    color: red;
-    font-size: 14px;
-    margin: 0;
-    display: none;   
+  background: url("https://i.pinimg.com/736x/17/75/0d/17750dcdd82e96ffb2af664a3ea3b036.jpg")no-repeat center/cover;   
 }
